@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:component-scan base-package="com.chinaums.bmp.controller"></context:component-scan>
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!--&lt;!&ndash; 把对静态资源的访问由HandlerMapping转到 org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler-->
+        <!--处理并返回. DefaultServletHttpRequestHandler使用就是各个Servlet容器自己的默认Servlet,这样就不用配置<mvc:resources/>,web.xml也不用配置<servlet-mapping> &ndash;&gt;-->
+    <!--<mvc:default-servlet-handler/>-->
+</beans>
