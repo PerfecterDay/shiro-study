@@ -17,15 +17,13 @@ public class MyRealm extends AuthenticatingRealm{
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        if (Math.random() * 100 < 100){
-//            return
-//                    new SimpleAuthenticationInfo(authenticationToken.getPrincipal(),
-//                            authenticationToken.getCredentials(),"123");
+        /*调用全名付登录验证接口*/
 
+        if (Math.random() * 100 < 100){
 
             return
-                    new SimpleAuthenticationInfo("authenticationToken",
-                            "abc","123");
+                    new SimpleAuthenticationInfo(authenticationToken.getPrincipal(),
+                            authenticationToken.getCredentials(),getName());
         }else {
             throw new AuthenticationException();
         }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <!-- 安全管理器 -->
+    <!-- shiro安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm"/>
         <!--<property name="sessionManager" ref="sessionManager"/>-->
@@ -17,7 +17,7 @@
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/success.jsp"/>
+        <property name="loginUrl" value="/common/login"/>
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
         <!--<property name="filters">-->
             <!--&lt;!&ndash;<util:map>&ndash;&gt;-->
@@ -26,14 +26,19 @@
         <!--</property>-->
         <property name="filterChainDefinitions">
             <value>
-                /login = anon
-                /login.do = anon
-                /*.do = authc
-                /index.jsp = anon
-                /unauthorized.jsp = anon
-                /login.jsp = authc
-                /logout = logout
-                /** = user
+                / = anon
+                /common/login = anon
+                /common/login.do = anon
+                /** = authc
+                <!--/ = anon-->
+                <!--/login = anon-->
+                <!--/login.do = anon-->
+                <!--/*.do = authc-->
+                <!--/index.jsp = anon-->
+                <!--/unauthorized.jsp = anon-->
+                <!--/login.jsp = authc-->
+                <!--/logout = logout-->
+                <!--/** = user-->
             </value>
         </property>
     </bean>

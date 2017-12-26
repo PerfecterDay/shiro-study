@@ -9,8 +9,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath:/spring/spring-applicationContext.xml,
-      classpath:/spring/spring-shiro-web.xml
+      classpath:/spring/applicationContext.xml
     </param-value>
   </context-param>
   <listener>
@@ -56,6 +55,21 @@
   </filter-mapping>
 
 
+  <servlet>
+    <servlet-name>RestDispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+        classpath:/spring/applicationContext-rest-servlet.xml
+      </param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RestDispatcherServlet</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
 
 
 
@@ -65,14 +79,20 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-        classpath:/spring/spring-servlet.xml
+        classpath:/spring/applicationContext-servlet.xml
       </param-value>
     </init-param>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/common/*</url-pattern>
   </servlet-mapping>
+
+
+
+
+
 
 
 </web-app>

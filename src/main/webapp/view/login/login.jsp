@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/login.do" method="post">
+<form action="/common/login.do" method="post">
     <input type="text" placeholder="用户名" name="name">
     <input type="text" placeholder="密码" name="pwd">
     <input type="submit">
