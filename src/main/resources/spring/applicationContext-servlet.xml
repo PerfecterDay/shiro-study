@@ -12,6 +12,12 @@
         <property name="prefix" value="/view/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--<bean name="/login" class="com.chinaums.bmp.commoncontroller.MyController" />-->
+
+    <!--<bean class="com.chinaums.bmp.handlermapping.MyHandlerMapping"/>-->
+
+
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>-->
 
 
     <!--&lt;!&ndash; 把对静态资源的访问由HandlerMapping转到 org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler-->
